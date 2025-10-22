@@ -5,6 +5,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("httpx")
+
 from txrrc.database import Database
 from txrrc.fetch.downloader import Downloader
 
