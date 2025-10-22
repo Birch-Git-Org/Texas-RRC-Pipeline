@@ -1,0 +1,60 @@
+line_length: 200
+root_record: "01"
+root_fields:
+  - api14
+  - api10
+  - district
+  - county_code
+  - field_code
+  - field_name
+  - well_name
+  - operator_number
+  - operator_name
+  - orig_completion_date
+  - total_depth
+child_fields:
+  total_depth_detail: total_depth
+records:
+  "01":
+    fields:
+      - name: api14
+        start: 3
+        length: 14
+      - name: api10
+        start: 17
+        length: 10
+      - name: district
+        start: 27
+        length: 2
+      - name: county_code
+        start: 29
+        length: 3
+      - name: field_code
+        start: 32
+        length: 5
+      - name: field_name
+        start: 37
+        length: 25
+      - name: well_name
+        start: 62
+        length: 25
+      - name: operator_number
+        start: 87
+        length: 6
+      - name: operator_name
+        start: 93
+        length: 30
+      - name: orig_completion_date
+        start: 123
+        length: 8
+        type: date
+      - name: total_depth
+        start: 131
+        length: 6
+        type: numeric
+  "02":
+    fields:
+      - name: total_depth_detail
+        start: 10
+        length: 6
+        type: numeric

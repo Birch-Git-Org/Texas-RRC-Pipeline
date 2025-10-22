@@ -1,0 +1,27 @@
+[project]
+name = "txrrc"
+version = "0.1.0"
+description = "TXRRC data pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx",
+    "beautifulsoup4",
+    "lxml",
+    "python-dateutil",
+    "pydantic",
+    "typer",
+    "charset-normalizer",
+    "tenacity",
+    "pandas",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "mypy", "ruff"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.typer]
+script-name = "txrrc"
