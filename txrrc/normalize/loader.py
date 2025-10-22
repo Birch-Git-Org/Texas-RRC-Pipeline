@@ -51,9 +51,20 @@ class Loader:
                 f"INSERT INTO {target} ({column_list}) SELECT {stage_select} FROM {stage_table} "
                 f"ON CONFLICT({','.join(dataset.keys)}) DO UPDATE SET {assignments}"
             )
+            try:
+                conn.execute(sql)
+            except sqlite3.OperationalError:
+                if "DO UPDATE" in sql:
+                    fallback = (
+                        f"INSERT OR REPLACE INTO {target} ({column_list}) "
+                        f"SELECT {stage_select} FROM {stage_table}"
+                    )
+                    conn.execute(fallback)
+                else:
+                    raise
         else:
             sql = f"INSERT OR IGNORE INTO {target} ({column_list}) SELECT {stage_select} FROM {stage_table}"
-        conn.execute(sql)
+            conn.execute(sql)
 
     def _record_lineage(
         self,
