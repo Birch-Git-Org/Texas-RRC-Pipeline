@@ -1,0 +1,25 @@
+fields:
+  - name: permit_number
+    start: 1
+    length: 6
+  - name: api10
+    start: 7
+    length: 10
+  - name: submit_date
+    start: 17
+    length: 8
+    type: date
+  - name: approve_date
+    start: 25
+    length: 8
+    type: date
+  - name: well_purpose
+    start: 33
+    length: 10
+  - name: lateral_length
+    start: 43
+    length: 5
+    type: numeric
+  - name: is_horizontal
+    start: 48
+    length: 1
