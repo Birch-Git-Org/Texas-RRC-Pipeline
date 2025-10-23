@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS dq_issue (
 
 CREATE TABLE IF NOT EXISTS lineage_ingest (
   lineage_id INTEGER PRIMARY KEY,
-  raw_file_id INTEGER NOT NULL,
+  raw_file_id INTEGER,
   dataset_key TEXT NOT NULL,
   stage_table TEXT NOT NULL,
   loaded_tables TEXT NOT NULL,
@@ -97,4 +97,15 @@ CREATE TABLE IF NOT EXISTS field (
   field_name TEXT,
   district TEXT,
   oil_or_gas TEXT
+);
+
+CREATE TABLE IF NOT EXISTS completion_packet (
+  tracking_number TEXT PRIMARY KEY,
+  packet_number TEXT,
+  district TEXT,
+  status TEXT,
+  submitted_date TEXT,
+  forms_summary TEXT,
+  attachments TEXT,
+  payload_json TEXT
 );

@@ -120,6 +120,25 @@ def get_default_datasets() -> dict[str, DatasetConfig]:
             },
             keys=("field_code",),
         ),
+        "completions": DatasetConfig(
+            dataset_key="completions",
+            title="Completion Packets",
+            source_patterns=("completion", "packetdata", "cmpl"),
+            format="completions_zip",
+            layout=None,
+            target_table="completion_packet",
+            mapping={
+                "tracking_number": "tracking_number",
+                "packet_number": "packet_number",
+                "district": "district",
+                "status": "status",
+                "submitted_date": "submitted_date",
+                "forms_summary": "forms_summary",
+                "attachments": "attachments",
+                "payload_json": "payload_json",
+            },
+            keys=("tracking_number",),
+        ),
     }
 
 

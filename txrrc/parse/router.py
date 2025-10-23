@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Iterable
 
 from ..config import DatasetConfig, get_default_datasets, load_layout
+from .completions_parser import parse_completions_zip
 from .csv_parser import parse_csv
 from .ebcdic_parser import parse_ebcdic_fixed
 from .fixed_parser import parse_ascii_fixed
@@ -25,4 +26,6 @@ class ParseRouter:
         if dataset.format == "ebcdic_fixed":
             layout = load_layout(dataset.layout or "")
             return parse_ebcdic_fixed(data, layout)
+        if dataset.format == "completions_zip":
+            return parse_completions_zip(data)
         raise ValueError(f"Unknown format {dataset.format}")

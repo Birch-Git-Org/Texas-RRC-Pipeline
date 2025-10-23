@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
+pytest.importorskip("yaml")
+
 from txrrc.config import load_layout
 from txrrc.parse.ebcdic_parser import parse_ebcdic_fixed
 
